@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: vault-demo
+  cloud:
+    vault:
+      host: localhost # default
+      port: 8200 # default
+      authentication: token
+      token: 00000000-0000-0000-0000-000000000000
+      scheme: http
+      uri: http://localhost:8200
+      connection-timeout: 5000 # default
+      read-timeout: 15000 # default
+      kv:
+        default-context: application # default
+  config:
+#    import: vault:///secret/application # no need this time because spring boot default configuration for path /secret/application
+    import: vault://
+#  profiles:
+#    active: dev
+
+# This spring boot version, no need to create bootstrap.yml file, instead of declare configuration here (application.yml)
